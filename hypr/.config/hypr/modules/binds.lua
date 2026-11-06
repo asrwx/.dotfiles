@@ -11,16 +11,15 @@ local bar_toggle = "~/.config/waybar/scripts/reload_waybar.sh"
 ---- KEYBINDINGS ----
 ---------------------
 
-local mainMod = "ALT" -- Sets "ALT" key as main modifier
-local super = "SUPER"
+local super = "SUPER" -- Sets "SUPER" key (windows key) as main modifier
 
 -- Core binds
-hl.bind(mainMod .. "+Space", hl.dsp.exec_cmd("rofi -show drun"))
-hl.bind(mainMod .. "+S", hl.dsp.exec_cmd("~/.config/rofi/scripts/powermenu.sh"))
--- hl.bind(mainMod .. "+comma", hl.dsp.exec_cmd("settings-toggle"))
+hl.bind(super .. "+Space", hl.dsp.exec_cmd("rofi -show drun"))
+hl.bind(super .. "+S", hl.dsp.exec_cmd("~/.config/rofi/scripts/powermenu.sh"))
+-- hl.bind(super .. "+comma", hl.dsp.exec_cmd("settings-toggle"))
 -- hl.bind("ALT + Tab", hl.dsp.exec_cmd("window-switcher"))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(bar_toggle))
--- hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("dock-toggle"))
+hl.bind(super .. " + SHIFT + B", hl.dsp.exec_cmd(bar_toggle))
+-- hl.bind(super .. " + D", hl.dsp.exec_cmd("dock-toggle"))
 
 -- Media keys
 -- hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(ipc .. "volume-up"))
@@ -29,63 +28,63 @@ hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(bar_toggle))
 -- hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(ipc .. "brightness-up"))
 -- hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. "brightness-down"))
 
-hl.bind(mainMod .. " + G", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + C", hl.dsp.window.kill())
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
-hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal2))
-hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(wallpaperManager))
--- hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(reload_bar))
+hl.bind(super .. " + Return", hl.dsp.exec_cmd(terminal))
+hl.bind(super .. " + C", hl.dsp.window.kill())
+hl.bind(super .. " + F", hl.dsp.window.fullscreen())
+hl.bind(super .. " + T", hl.dsp.exec_cmd(terminal2))
+hl.bind(super .. " + SHIFT + W", hl.dsp.exec_cmd(wallpaperManager))
+-- hl.bind(super .. " + N", hl.dsp.exec_cmd(reload_bar))
 hl.bind(super .. " + N", hl.dsp.exec_cmd("swaync-client -t"))
 hl.bind(super .. " + B", hl.dsp.exec_cmd("zen-browser --password-store=basic"))
 hl.bind(super .. " + E", hl.dsp.exec_cmd("gimp"))
 -- hl.bind(super .. " + P", hl.dsp.exec_cmd("shotwell"))
-hl.bind(super .. " + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))
-hl.bind(mainMod .. " + Q", hl.dsp.window.close())
--- hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
+hl.bind("CTRL" .. " + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(super .. " + Q", hl.dsp.window.close())
+-- hl.bind(super .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(super .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(super .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(super .. " + P", hl.dsp.window.pseudo())
 hl.bind(super .. " + J", hl.dsp.exec_cmd("togglesplit"))    -- dwindle only
 hl.bind(super .. " + W", hl.dsp.exec_cmd("hyprshot -m window"))
 hl.bind(super .. " + R", hl.dsp.exec_cmd("hyprshot -m region --raw | satty --filename -"))
 
--- Move focus with mainMod + arrow keys
-hl.bind(mainMod .. " + H",  hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + K",    hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + J",  hl.dsp.focus({ direction = "down" }))
+-- Move focus with super + arrow keys
+hl.bind(super .. " + H",  hl.dsp.focus({ direction = "left" }))
+hl.bind(super .. " + L", hl.dsp.focus({ direction = "right" }))
+hl.bind(super .. " + K",    hl.dsp.focus({ direction = "up" }))
+hl.bind(super .. " + J",  hl.dsp.focus({ direction = "down" }))
 
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
-    hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
-    hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+    hl.bind(super .. " + " .. key,             hl.dsp.focus({ workspace = i}))
+    hl.bind(super .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
 
 -- Example special workspace (scratchpad)
 -- hl.bind(super .. " + S",         hl.dsp.workspace.toggle_special("magic"))
--- hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+-- hl.bind(super .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
--- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+-- Scroll through existing workspaces with super + scroll
+hl.bind(super .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(super .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 
--- Move/resize windows with mainMod + LMB/RMB and dragging
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+-- Move/resize windows with super + LMB/RMB and dragging
+hl.bind(super .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
+hl.bind(super .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
-hl.bind(mainMod .. " + SHIFT + H", function()
+hl.bind(super .. " + SHIFT + H", function()
     hl.dispatch(hl.dsp.window.move({ direction = "left" }))    -- Change focus to another window
     hl.dispatch(hl.dsp.window.bring_to_top()) -- Bring it to the top
 end)
-hl.bind(mainMod .. " + SHIFT + L", function()
+hl.bind(super .. " + SHIFT + L", function()
     hl.dispatch(hl.dsp.window.move({ direction = "right" }))    -- Change focus to another window
     hl.dispatch(hl.dsp.window.bring_to_top()) -- Bring it to the top
 end)
-hl.bind(mainMod .. " + SHIFT + K", function()
+hl.bind(super .. " + SHIFT + K", function()
     hl.dispatch(hl.dsp.window.move({ direction = "up" }))    -- Change focus to another window
     hl.dispatch(hl.dsp.window.bring_to_top()) -- Bring it to the top
 end)
-hl.bind(mainMod .. " + SHIFT + J", function()
+hl.bind(super .. " + SHIFT + J", function()
     hl.dispatch(hl.dsp.window.move({ direction = "down" }))    -- Change focus to another window
     hl.dispatch(hl.dsp.window.bring_to_top()) -- Bring it to the top
 end)
