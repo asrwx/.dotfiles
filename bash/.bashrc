@@ -40,9 +40,10 @@ prompt_leader() {
     fi
 }
 
-# PS1='\[\e[48;2;50;33;47m\]\[\e[33m\]\u\[\e[0m\]\[\e[48;2;50;33;47m\] │ \[\e[38;2;200;50;50m\]\h linux \[\e[0m\]\[\e[48;2;50;33;47m\]│ \[\e[34m\]\W \[\e[0m\] $\[\e[0m\] '
-PS1='$(prompt_leader)\[\e[32m\] \h\[\e[0m\]: \[\e[34m\]\W $(git_branch)\[\e[0m\]$ '
-
+# PS1='$(prompt_leader)\[\e[32m\] \h\[\e[0m\]: \[\e[1m\]\[\e[34m\]\W $(git_branch)\[\e[0m\]$ '
+PS1='$(prompt_leader)\[\e[1m\]\[\e[34m\]\W $(git_branch)\[\e[0m\]$ '
+# \[\e[32m\] \h\[\e[0m\]: 
+#
 export PATH="$PATH:~/.cargo/bin"
 export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=nvim
