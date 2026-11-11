@@ -19,7 +19,7 @@ alias gdc='git add . && git commit -m "." && git push'
 alias pd='~/scripts/./pd.bash'
 alias scd='cd $(fzf --walker=dir,hidden,follow --walker-root=/home/asrwx)'
 
-PS1='\[\e[40m\]\[\e[33m\]\u │ \[\e[031m\]\h linux │ \[\e[34m\]\W \[\e[0m\] $\[\e[0m\] '
+PS1='\[\e[48;2;50;33;47m\]\[\e[33m\]\u\[\e[0m\]\[\e[48;2;50;33;47m\] │ \[\e[38;2;200;50;50m\]\h linux \[\e[0m\]\[\e[48;2;50;33;47m\]│ \[\e[34m\]\W \[\e[0m\] $\[\e[0m\] '
 # PS1='󰣇 \[\e[34m\]\w \[\e[0m\]$ '
 #➜  ➜
 export PATH="$PATH:~/.cargo/bin"
