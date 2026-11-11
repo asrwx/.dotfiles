@@ -19,9 +19,30 @@ alias gdc='git add . && git commit -m "." && git push'
 alias pd='~/scripts/./pd.bash'
 alias scd='cd $(fzf --walker=dir,hidden,follow --walker-root=/home/asrwx)'
 
-PS1='\[\e[48;2;50;33;47m\]\[\e[33m\]\u\[\e[0m\]\[\e[48;2;50;33;47m\] │ \[\e[38;2;200;50;50m\]\h linux \[\e[0m\]\[\e[48;2;50;33;47m\]│ \[\e[34m\]\W \[\e[0m\] $\[\e[0m\] '
-# PS1='󰣇 \[\e[34m\]\w \[\e[0m\]$ '
-#➜  ➜
+git_branch() {
+    branch=$(git branch --show-current 2>/dev/null)
+    status=$(git status -s 2>/dev/null | awk '{print $1}' | xargs)
+    if [[ -n "$branch" ]]; then
+        if [[ -n "$status" ]]; then
+            echo -e "\001\e[0m\002(\001\e[31m\002$branch\001\e[0m\002 \001\e[1m\002\001\e[33m\002✗\001\e[0m\002) "
+            return
+        fi
+        echo -e "\001\e[0m\002(\001\e[31m\002$branch\001\e[0m\002) "
+    fi
+}
+
+prompt_leader() {
+    ret_code=$(echo $?)
+    if (( ret_code != 0 )); then
+        echo -e "\001\e[31m➜\002\e[0m "
+    else
+        echo -e "➜ "
+    fi
+}
+
+# PS1='\[\e[48;2;50;33;47m\]\[\e[33m\]\u\[\e[0m\]\[\e[48;2;50;33;47m\] │ \[\e[38;2;200;50;50m\]\h linux \[\e[0m\]\[\e[48;2;50;33;47m\]│ \[\e[34m\]\W \[\e[0m\] $\[\e[0m\] '
+PS1='$(prompt_leader)\[\e[32m\] \h\[\e[0m\]: \[\e[34m\]\W $(git_branch)\[\e[0m\]$ '
+
 export PATH="$PATH:~/.cargo/bin"
 export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=nvim
@@ -38,8 +59,3 @@ export MANPAGER="nvim +Man!"
 # fi
 
 source /usr/share/nvm/init-nvm.sh
-# source ~/.bash/themes/aphrodite/aphrodite.theme.sh
-# eval "$(starship init bash)"
-# eval "$(oh-my-posh init bash --config emodipt-extend)"
-# eval "$(oh-my-posh init bash --config kali)"
-# eval "$(oh-my-posh init bash --config robbyrussell)"
