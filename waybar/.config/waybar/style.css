@@ -25,8 +25,8 @@
     font-family: JetBrainsMono Nerd Font Propo;
     /* font-family: Maple Mono NF; */
     font-size: 17px;
-    margin-top: -2px;
-    margin-bottom: -2px;
+    margin-top: -5px;
+    margin-bottom: -5px;
 }
 
 window#waybar {
@@ -41,7 +41,7 @@ window#waybar {
 
 #workspaces button {
     /* padding: 3px; */
-    margin: 7px 0px 7px 7px;
+    margin: 7px 0px 7px 0px;
     background: transparent;
     border-radius: 10px;
     color: @nord_fg;
