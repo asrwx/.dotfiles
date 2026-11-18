@@ -32,15 +32,15 @@ git_branch() {
 }
 
 prompt_leader() {
-    if (( $? != 0 )); then
-        echo -e "\n\001\e[31m$\002\e[0m "
-    else
-        echo -e "\n$ "
-    fi
+    # if (( ret_code != 0 )); then
+    #     echo -e "\001\e[31m$\002\001\e[0m\002 "
+    # else
+    echo -e "$ "
+    # fi
 }
 
-PS1='\n\[\e[32m\]\u - \h\[\e[0m\]: \[\e[1m\]\[\e[36m\]\W $(git_branch)\[\e[0m\]$(prompt_leader)'
-# #
+PS1='\[\e[32m\]\u - \h\[\e[0m\]: \[\e[1m\]\[\e[36m\]\W $(git_branch)\[\e[0m\]\n$(prompt_leader)'
+
 export PATH="$PATH:~/.cargo/bin"
 export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=nvim
