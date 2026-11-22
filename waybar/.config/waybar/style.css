@@ -30,7 +30,7 @@
 }
 
 window#waybar {
-    background-color: @nord_bg;
+    background-color: #101010;
     /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
     color: #ffffff;
 }
