@@ -4,13 +4,22 @@
       "rev": "b902c73fabefc13583bfc0c18b28950ea8f6244f",
       "src": "https://github.com/dchinmay2/alabaster.nvim"
     },
+    "ashen.nvim": {
+      "rev": "bfb04bd50b69d863469b2deb9fb361cf0d945ba7",
+      "src": "https://github.com/ficd0/ashen.nvim"
+    },
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
-      "src": "https://github.com/saghen/blink.cmp"
+      "src": "https://github.com/saghen/blink.cmp",
+      "version": "1.0.0 - 2.0.0"
     },
     "catppuccin": {
       "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
       "src": "https://github.com/catppuccin/nvim"
+    },
+    "dracula.nvim": {
+      "rev": "ae752c13e95fb7c5f58da4b5123cb804ea7568ee",
+      "src": "https://github.com/Mofiqul/dracula.nvim"
     },
     "fzf-lua": {
       "rev": "9405672f62767695d5f20db171336f7f4911ce86",
@@ -31,6 +40,10 @@
     "gruvbox.nvim": {
       "rev": "154eb5ff5b96d0641307113fa385eaf0d36d9796",
       "src": "https://github.com/ellisonleao/gruvbox.nvim"
+    },
+    "indent-blankline.nvim": {
+      "rev": "f1e186e44d3b7f9ae918008e2c28ce37c6023d2d",
+      "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
     },
     "kanagawa.nvim": {
       "rev": "bb85e4bfc8d89b0e62c8fa53ccdd13d12e2f77b3",
