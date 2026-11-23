@@ -14,16 +14,16 @@ require('github-theme').setup({
     dim_inactive = false,      -- Non focused panes set to alternative background
     module_default = true,     -- Default enable value for modules
     styles = {                 -- Style to be applied to different syntax groups
-      comments = 'NONE',       -- Value is any valid attr-list value `:help attr-list`
+      comments = 'italic',       -- Value is any valid attr-list value `:help attr-list`
       functions = 'NONE',
-      keywords = 'NONE',
+      keywords = 'italic',
       variables = 'NONE',
       conditionals = 'NONE',
       constants = 'NONE',
       numbers = 'NONE',
       operators = 'NONE',
       strings = 'NONE',
-      types = 'NONE',
+      types = 'italic',
     },
     inverse = {                -- Inverse highlight for different types
       match_paren = false,
