@@ -39,7 +39,7 @@ prompt_leader() {
     # fi
 }
 
-PS1='\[\e[32m\]\u - \h\[\e[0m\]: \[\e[1m\]\[\e[36m\]\W $(git_branch)\[\e[0m\]\n$(prompt_leader)'
+PS1='\[\e[32m\] \h\[\e[0m\]: \[\e[1m\]\[\e[36m\]\W $(git_branch)\[\e[0m\]$(prompt_leader)'
 
 export PATH="$PATH:~/.cargo/bin"
 export PATH="$HOME/.local/bin:$PATH"

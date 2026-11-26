@@ -1,4 +1,4 @@
-font-family = JetBrains Mono Nerd Font
+# font-family = JetBrains Mono Nerd Font
 font-size = 13
 font-style = Regular
 font-style-italic = true
@@ -25,7 +25,7 @@ font-style-italic = "Italic"
 # font-thicken = true
 adjust-cell-height = 20%
 # resize-overlay-duration = 4s 200ms
-# font-family = MesloLGS Nerd Font Mono
+font-family = MesloLGS Nerd Font Mono
 # font-family = SauceCodePro Nerd Font
 # font-family = Fira Code
 # font-family = Hack
