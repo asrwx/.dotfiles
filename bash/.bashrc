@@ -19,7 +19,7 @@ alias gdc='git add . && git commit -m "." && git push'
 alias pd='~/scripts/./pd.bash'
 alias scd='cd $(fzf --walker=dir,hidden,follow --walker-root=/home/asrwx)'
 
-git_branch() {
+git_info() {
     local branch=$(git branch --show-current 2>/dev/null)
     local status=$(git status -s 2>/dev/null | awk '{print $1}' | xargs)
     if [[ -n "$branch" ]]; then
@@ -32,14 +32,10 @@ git_branch() {
 }
 
 prompt_leader() {
-    # if (( ret_code != 0 )); then
-    #     echo -e "\001\e[31m$\002\001\e[0m\002 "
-    # else
-    echo -e "$ "
-    # fi
+    echo -e "\001\e[0m\002$ "
 }
 
-PS1='\[\e[32m\] \h\[\e[0m\]: \[\e[1m\]\[\e[36m\]\W $(git_branch)\[\e[0m\]$(prompt_leader)'
+PS1='\[\e[32m\] \h\[\e[0m\]: \[\e[1m\]\[\e[36m\]\W $(git_info)\[\e[0m\]$(prompt_leader)'
 
 export PATH="$PATH:~/.cargo/bin"
 export PATH="$HOME/.local/bin:$PATH"
