@@ -24,18 +24,26 @@ git_info() {
     local status=$(git status -s 2>/dev/null | awk '{print $1}' | xargs)
     if [[ -n "$branch" ]]; then
         if [[ -n "$status" ]]; then
-            echo -e "\001\e[0m\002(\001\e[31m\002\001\e[01m\002$branch\001\e[0m\002 \001\e[1m\002\001\e[33m\002✗\001\e[0m\002) "
+            echo -ne "\001\e[0m\002\001\e[34m\001\e[01m\002git:(\002\001\e[0m\002\001\e[31m\002\001\e[01m\002$branch\001\e[0m\002 \001\e[1m\002\001\e[33m\002✗\001\e[0m\002\001\e[34m\002\001\e[01m\002)\001\e[0m\002 "
             return
         fi
-        echo -e "\001\e[0m\002(\001\e[31m\002\001\e[01m\002$branch\001\e[0m\002) "
+        echo -ne "\001\e[0m\002\001\e[34m\002\001\e[01m\002git:(\001\e[0m\002\001\e[31m\002\001\e[01m\002$branch\001\e[0m\002\001\e[34m\002\001\e[01m\002)\001\e[0m\002 "
     fi
 }
 
-prompt_leader() {
-    echo -e "\001\e[0m\002$ "
+leader() {
+    if [[ "$?" != 0 ]]; then
+        echo -ne "\001\e[31m\002➜\001\e[0m\002  "
+    else
+        echo -ne "\001\e[32m\002➜\001\e[0m\002  "
+    fi
 }
 
-PS1='\[\e[32m\] \h\[\e[0m\]: \[\e[1m\]\[\e[36m\]\W $(git_info)\[\e[0m\]$(prompt_leader)'
+robbyrussell() {
+    PS1='$(leader)\[\e[1m\]\[\e[36m\]\W $(git_info)\[\e[0m\]'
+}
+
+robbyrussell
 
 export PATH="$PATH:~/.cargo/bin"
 export PATH="$HOME/.local/bin:$PATH"
@@ -53,3 +61,4 @@ export MANPAGER="nvim +Man!"
 # fi
 
 source /usr/share/nvm/init-nvm.sh
+# eval "$(starship init bash)"

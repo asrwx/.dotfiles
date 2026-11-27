@@ -8,6 +8,10 @@
       "rev": "bfb04bd50b69d863469b2deb9fb361cf0d945ba7",
       "src": "https://github.com/ficd0/ashen.nvim"
     },
+    "blade.nvim": {
+      "rev": "ff757b22566496c366c1c949551d0bfa86325fac",
+      "src": "https://github.com/sirzif/blade.nvim"
+    },
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp",

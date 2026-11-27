@@ -1,4 +1,4 @@
-vim.opt.termguicolors = false
+vim.opt.termguicolors = true
 vim.g.mapleader = " " -- space for leader
 vim.g.maplocalleader = " " -- space for localleader
 vim.opt.number = true -- line number
